@@ -4,6 +4,9 @@ var hoursOfOperation = ['6am','7am', '8am','9am', '10am','11am','12am', '1pm', '
 //console.log(document);
 
 // Manipulate the DOM! with js
+
+//Seattle --------------------------------
+
 var seattle = {
   location: 'Seattle',
   minCust: 23,
@@ -32,12 +35,35 @@ var seattle = {
   }
 };
 
-// var tokyo = {
-//   location: 'Tokyo',
-//   minCust: 3,
-//   maxCust: 24,
-//   avgCookieSale: 1.2
-// };
+//Tokyo ----------------------------------
+
+var tokyo = {
+  location: 'Tokyo',
+  minCust: 3,
+  maxCust: 24,
+  avgCookieSale: 1.2,
+  hourlySalesArray: [],
+  dailySalesTotal: 0,
+  calcHourlySalesArray: function () {
+    for(var i = 0; i < hoursOfOperation.length; i++) {
+      var hourlySales = Math.ceil(getRandomIntInclusive(this.minCust, this. maxCust) * this.avgCookieSale);
+      this.hourlySalesArray.push(hourlySales);
+      this.dailySalesTotal += hourlySales;
+    }
+  },
+  render: function(){
+    this.calcHourlySalesArray();
+    var ulEl = document.getElementById('tokyo');
+    for (var i = 0; i < hoursOfOperation.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${hoursOfOperation[i]}: ${this.hourlySalesArray[i]} cookies`;
+      ulEl.append(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.dailySalesTotal} cookies`;
+    ulEl.append(liEl);
+  }
+};
 
 // var dubai = {
 //   location: 'Dubai',
@@ -62,9 +88,11 @@ var seattle = {
 
 //source from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIntInclusive(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
 
 
 seattle.render();
+tokyo.render();
+
 
