@@ -93,12 +93,33 @@ var dubai = {
   }
 };
 
-// var paris = {
-//   location: 'Paris',
-//   minCust: 20,
-//   maxCust: 38,
-//   avgCookieSale: 2.3
-// };
+var paris = {
+  location: 'Paris',
+  minCust: 20,
+  maxCust: 38,
+  avgCookieSale: 2.3,
+  hourlySalesArray: [],
+  dailySalesTotal: 0,
+  calcHourlySalesArray: function () {
+    for(var i = 0; i < hoursOfOperation.length; i++) {
+      var hourlySales = Math.ceil(getRandomIntInclusive(this.minCust, this. maxCust) * this.avgCookieSale);
+      this.hourlySalesArray.push(hourlySales);
+      this.dailySalesTotal += hourlySales;
+    }
+  },
+  render: function(){
+    this.calcHourlySalesArray();
+    var ulEl = document.getElementById('paris');
+    for (var i = 0; i < hoursOfOperation.length; i++){
+      var liEl = document.createElement('li');
+      liEl.textContent = `${hoursOfOperation[i]}: ${this.hourlySalesArray[i]} cookies`;
+      ulEl.append(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total: ${this.dailySalesTotal} cookies`;
+    ulEl.append(liEl);
+  }
+};
 
 // var lima = {
 //   location: 'Lima',
@@ -116,5 +137,6 @@ function getRandomIntInclusive(min, max) {
 seattle.render();
 tokyo.render();
 dubai.render();
+paris.render();
 
 
