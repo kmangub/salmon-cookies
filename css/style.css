@@ -3,27 +3,41 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 a:link, a:visited {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 header {
-  margin-left: 300px;
+  height: 120px;
+  background-color: rgb(218, 154, 37);
 }
-header > img {
+header h1 {
+  font-size: 50px;
+  font-style: italic;
+  color: green;
+  white-space: nowrap;
+}
+header nav {
+  width: 960px;
+  margin: auto;
+}
+
+header img {
   width: 300px;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-bottom: 10px;
   float: left;
 }
-
+header ul {
+  float: left;
+}
 header li:first-child{
   margin-left: 30px;
+  margin-top: 15px;
 }
 
-header > nav > ul > li {
+header li {
   color: rgb(255, 255, 255);
   display: inline-block;
   width: 135px;
@@ -36,13 +50,59 @@ header > nav > ul > li {
 
 }
 
+/* ---------main--------- */
+
+
 main {
   width: 960px;
   margin: auto;
 }
 
-main img {
+main h1 {
+  font-size: 30px;
+  margin-top: 10px;
+}
+main img[src="img/family.jpg"] {
   width: 600px;
-  margin: auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: block;
 }
 
+main img[src="img/cutter.jpeg"] {
+  width: 300px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: inline-block;
+  
+}
+
+main img[src="img/frosted-cookie.jpg"] {
+  width: 300px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+main p {
+  font-size: 20px;
+}
+
+main h3 {
+  font-size: 20px;
+}
+
+main article {
+  display: inline-block;
+  width: 250px;
+  text-align: center;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
