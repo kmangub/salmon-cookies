@@ -17,7 +17,27 @@
         <ul id='lima'>Lima</ul>
       </p> -->
 
-      <table>
+      <form id="new-place">
+        <fieldset>
+          <legend>New Location Request</legend>
+
+          <label for="location">Enter New Location</label>
+          <input type="text" placeholder="Country or State" name="location">
+
+          <label for="minCust">Enter Minimum Customers</label>
+          <input type="number" placeholder="123" name="minCust">
+
+          <label for="maxCust">Enter Maximum Customers</label>
+          <input type="number" placeholder="123" name="maxCust">
+
+          <label for="avgCookieSale">Enter Average Cookie Sales</label>
+          <input type="float" placeholder="123" name="avgCookieSale">
+
+          <button type="submit">Send</button>
+        </fieldset>
+      </form>
+
+      <table id="sales-table">
         <thead id="table-head"></thead>
         <tbody id="table-body"></tbody>
         <tfoot id="table-foot"></tfoot>
